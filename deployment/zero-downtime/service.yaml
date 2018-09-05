@@ -1,0 +1,14 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: zero-downtime
+  labels:
+    app: zero-downtime
+spec:
+  selector:
+    app: zero-downtime
+  ports:
+    - port: 8080
+      name: http
+  type: NodePort
+---

@@ -1,0 +1,11 @@
+context: zero-downtime-k8s.example.com
+global:
+  subsets: v1,v2
+  newVersion: v2
+  image: 2
+include:
+  - name: deployment
+    path: zero-downtime/deployment.tpl.yaml
+  - name: routing
+    path: zero-downtime/routing.tpl.yaml
+---

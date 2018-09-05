@@ -1,0 +1,21 @@
+# to self
+apiVersion: networking.istio.io/v1alpha3
+kind: ServiceEntry
+metadata:
+  name: zero-downtime
+spec:
+  hosts:
+  - "zero-downtime.example.com"
+  addresses:
+  - "35.204.172.165"
+  - "192.168.99.100"
+  ports:
+  - number: 80
+    name: http
+    protocol: HTTP
+  - number: 31380
+    name: http-nodeport
+    protocol: HTTP
+  resolution: NONE
+  location: MESH_EXTERNAL
+---
