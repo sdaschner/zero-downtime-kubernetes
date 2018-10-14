@@ -1,9 +1,9 @@
 kind: Ingress
 apiVersion: extensions/v1beta1
 metadata:
-  name: zero-downtime
+  name: coffee-shop
 spec:
   backend:
-    serviceName: zero-downtime
+    serviceName: coffee-shop
     servicePort: 8080
 ---

@@ -1,11 +1,11 @@
-context: zero-downtime-k8s.example.com
+context: coffee-shop-k8s.example.com
 global:
-  subsets: v1,v2
-  newVersion: v2
-  image: 2
+  subsets: v1
+  newVersion: v1
+  image: 1
 include:
   - name: deployment
-    path: zero-downtime/deployment.tpl.yaml
+    path: coffee-shop/deployment.tpl.yaml
   - name: routing
-    path: zero-downtime/routing.tpl.yaml
+    path: coffee-shop/routing.tpl.yaml
 ---

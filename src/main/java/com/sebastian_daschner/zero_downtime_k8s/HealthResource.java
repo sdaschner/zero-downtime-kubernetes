@@ -20,6 +20,7 @@ public class HealthResource {
         return "OK";
     }
 
+    // just an example; don't make this publicly accessible :-)
     @DELETE
     public void shutdown() {
         shutdown.set(true);

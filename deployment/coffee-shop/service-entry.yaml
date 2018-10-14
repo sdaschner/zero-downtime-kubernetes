@@ -2,19 +2,16 @@
 apiVersion: networking.istio.io/v1alpha3
 kind: ServiceEntry
 metadata:
-  name: zero-downtime
+  name: coffee-shop
 spec:
   hosts:
-  - "zero-downtime.example.com"
+  - "coffee-shop.example.com"
   addresses:
-  - "35.204.172.165"
-  - "192.168.99.100"
+  # Istio gateway, needs to be reached from fortio
+  - "159.122.92.154"
   ports:
   - number: 80
     name: http
-    protocol: HTTP
-  - number: 31380
-    name: http-nodeport
     protocol: HTTP
   resolution: NONE
   location: MESH_EXTERNAL

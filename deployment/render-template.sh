@@ -8,4 +8,4 @@ fi
 set -euo pipefail
 rs=$1
 
-kontemplate template --var subsets=v1,v2 --var image=3 --var newVersion=v3 -i $rs .kontemplate.yaml
+kontemplate template -i $rs .kontemplate.yaml

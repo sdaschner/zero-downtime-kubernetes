@@ -1,9 +1,9 @@
 apiVersion: networking.istio.io/v1alpha3
 kind: DestinationRule
 metadata:
-  name: zero-downtime
+  name: coffee-shop
 spec:
-  host: zero-downtime
+  host: coffee-shop
   subsets:
   {{- range splitList "," .subsets }}
   - name: {{ . }}
@@ -15,16 +15,16 @@ spec:
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
 metadata:
-  name: zero-downtime-gateway
+  name: coffee-shop-gateway
 spec:
   hosts:
   - "*"
   gateways:
-  - zero-downtime-gateway
+  - coffee-shop-gateway
   http:
   - route:
     - destination:
-        host: zero-downtime
+        host: coffee-shop
         subset: {{ .newVersion }}
         port:
           number: 8080
@@ -36,14 +36,14 @@ spec:
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
 metadata:
-  name: zero-downtime
+  name: coffee-shop
 spec:
   hosts:
-  - zero-downtime
+  - coffee-shop
   http:
   - route:
     - destination:
-        host: zero-downtime
+        host: coffee-shop
         subset: {{ .newVersion }}
 #    retries:
 #      attempts: 10

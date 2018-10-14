@@ -1,12 +1,12 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: zero-downtime
+  name: coffee-shop
   labels:
-    app: zero-downtime
+    app: coffee-shop
 spec:
   selector:
-    app: zero-downtime
+    app: coffee-shop
   ports:
     - port: 8080
       name: http

@@ -16,7 +16,7 @@
     </dependencies>
 
     <build>
-        <finalName>zero-downtime</finalName>
+        <finalName>coffee-shop</finalName>
     </build>
 
     <properties>
