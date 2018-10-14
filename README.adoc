@@ -1,18 +1,16 @@
-= Zero-downtime rolling update deployments with Istio
+= Zero-downtime rolling update deployments with Kubernetes
 
-// For more information see the following article series
+// For more information see the following article series part 1
 
 == Running the example
 
 - Build the project via Maven (`mvn clean package`).
 - Build and push a Docker image to a registry of your choice.
-- Change some behavior and re-build the project and Docker image with another Docker tag and re-push the image.
-- Change the image definition in `deployment/coffee-shop/deployment.tpl.yaml`
-- Change the IP address definition in service-entry to the public IP address of your ingress gateway.
-- Apply `deployment/coffee-shop/{gateway,service,service-entry}.yaml` to your Istio cluster.
-- Run `deployment/deploy-v1-istio.sh`
+- Change some behavior and re-build the project and Docker image with a different Docker tag and re-push the image.
+- Change the deployment definition under `deployment/coffee-shop/deployment.yaml` to use your first image version.
+- Run `deployment/deploy-v1.sh`
 - Test the running version
-- Run `deployment/exec-zero-downtime.sh <old-version> <new-version> <new-image>` to perform a deployment using version subsets (`v1`, `v2`, etc.).
-- Deploy `deployment/fortio/deployment.yaml`, run `kubectl port-forward <fortio-pod> 8080:8080`, and run `./curl-test.sh` or `./load-test.sh` to test your application
-- Browse `localhost:8080/fortio` to see the load test results.
-- Execute a deployment during a load test and see what happens
+- Run `kubectl port-forward <fortio-pod> 8080:8080`, and run `./curl-test.sh` or `./load-test.sh` to test your application
+- Browse http://localhost:8080/fortio/browse to see the load test results.
+- Change the deployment definition to use your second image version and apply.
+- Execute a load test during the deployment and see what happens.
