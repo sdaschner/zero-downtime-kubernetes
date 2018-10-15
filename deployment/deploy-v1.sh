@@ -2,10 +2,12 @@
 cd ${0%/*}
 set -euo pipefail
 
-./render-template.sh deployment > deployment.yaml
+#./render-template.sh deployment > deployment.yaml
+kontemplate template -i deployment .kontemplate.yaml > deployment.yaml
 kubectl apply -f deployment.yaml
 
-./render-template.sh routing > routing.yaml
+#./render-template.sh routing > routing.yaml
+kontemplate template -i routing .kontemplate.yaml > routing.yaml
 kubectl apply -f routing.yaml
 
 kubectl apply -f coffee-shop/gateway.yaml
