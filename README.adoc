@@ -1,6 +1,6 @@
 = Zero-downtime rolling update deployments with Kubernetes
 
-// For more information see the following article series part 1
+For more information please see the following https://blog.sebastian-daschner.com/entries/zero-downtime-updates-kubernetes[article^].
 
 == Running the example
 
