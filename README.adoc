@@ -13,7 +13,7 @@ NOTE: To run the deployment scripts, https://github.com/tazjin/kontemplate[konte
 - Change the IP address definition in `deployment/coffee-shop/service-entry.yaml` to the public IP address of your ingress gateway.
 - Run `deployment/deploy-v1.sh`
 - Test the running version
-- Run `deployment/exec-zero-downtime.sh <old-version> <new-version> <new-image>` to perform a deployment using version subsets (`v1`, `v2`, ...). Example: `deployment/exec-zero-downtime.sh v1 v2 1`
+- Run `deployment/exec-zero-downtime.sh <old-version> <new-version> <new-image>` to perform a deployment using version subsets (`v1`, `v2`, ...). Example: `deployment/exec-zero-downtime.sh v1 v2 2`
 - Run `kubectl port-forward <fortio-pod> 8080:8080`, and run `./curl-test.sh` or `./load-test.sh` to test your application
 - Browse http://localhost:8080/fortio/browse to see the load test results.
 - Perform a deployment during a load test and see what happens
