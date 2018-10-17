@@ -13,7 +13,7 @@ To run the deployment scripts, https://github.com/tazjin/kontemplate[kontemplate
 - Build and push a Docker image to a registry of your choice.
 - Change some behavior and re-build the project and Docker image with another Docker tag and re-push the image.
 - Change the image definition in `deployment/coffee-shop/deployment.tpl.yaml` (the part before the version variable)
-- Change the IP address definition in service-entry to the public IP address of your ingress gateway.
+- Change the IP address definition in `deployment/coffee-shop/service-entry.yaml` to the public IP address of your ingress gateway.
 - Run `deployment/deploy-v1.sh`
 - Test the running version
 - Run `deployment/exec-zero-downtime.sh <old-version> <new-version> <new-image>` to perform a deployment using version subsets (`v1`, `v2`, etc.).
