@@ -4,10 +4,7 @@
 
 == Running the example
 
-[NOTE]
-====
-To run the deployment scripts, https://github.com/tazjin/kontemplate[kontemplate^] is required.
-====
+NOTE: To run the deployment scripts, https://github.com/tazjin/kontemplate[kontemplate^] is required.
 
 - Build the project via Maven (`mvn clean package`).
 - Build and push a Docker image to a registry of your choice.
