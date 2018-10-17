@@ -1,6 +1,6 @@
 = Zero-downtime rolling update deployments with Istio
 
-// For more information see the following article series
+// For more information see the following https://blog.sebastian-daschner.com/entries/zero-downtime-updates-istio[article^].
 
 == Running the example
 
@@ -11,10 +11,9 @@ INFO: To run the deployment scripts, https://github.com/tazjin/kontemplate[konte
 - Change some behavior and re-build the project and Docker image with another Docker tag and re-push the image.
 - Change the image definition in `deployment/coffee-shop/deployment.tpl.yaml` (the part before the version variable)
 - Change the IP address definition in service-entry to the public IP address of your ingress gateway.
-- Apply `deployment/coffee-shop/{gateway,service,service-entry}.yaml` to your Istio cluster.
 - Run `deployment/deploy-v1.sh`
 - Test the running version
 - Run `deployment/exec-zero-downtime.sh <old-version> <new-version> <new-image>` to perform a deployment using version subsets (`v1`, `v2`, etc.).
 - Run `kubectl port-forward <fortio-pod> 8080:8080`, and run `./curl-test.sh` or `./load-test.sh` to test your application
 - Browse http://localhost:8080/fortio/browse to see the load test results.
-- Execute a deployment during a load test and see what happens
+- Perform a deployment during a load test and see what happens
