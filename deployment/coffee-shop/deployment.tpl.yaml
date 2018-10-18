@@ -35,7 +35,7 @@ spec:
 #        lifecycle:
 #          preStop:
 #            exec:
-#              command: ["/bin/bash", "-c", "/deactivate-health-check.sh && sleep 20"]
+#              command: ["/bin/bash", "-c", "sleep 20"]
       imagePullSecrets:
       - name: regsecret
       restartPolicy: Always
