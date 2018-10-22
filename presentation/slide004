@@ -1,0 +1,11 @@
+
+
+
+
+
+            Kubernetes “Production-Readiness” Out Of The Box
+
+            • Controllers (e.g. Deployments, ReplicaSets)
+            • Services, load balancing
+            • Pod (re-)scheduling
+            • Rolling update deployments

@@ -1,0 +1,11 @@
+
+               
+                                                                             
+
+
+            Pod Disruption Budgets
+
+            • Mitigate disruption caused by planned cluster maintenance
+            • Considered by kubectl drain command
+            • Pods will be rescheduled before operators continue
+
