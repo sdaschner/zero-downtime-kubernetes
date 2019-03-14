@@ -11,7 +11,7 @@ spec:
     spec:
       containers:
       - name: coffee-shop
-        image: docker.sebastian-daschner.com/coffee-shop:1
+        image: sdaschner/coffee-shop:zero-downtime-1
         imagePullPolicy: Always
         livenessProbe:
           exec:
