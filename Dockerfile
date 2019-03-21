@@ -1,5 +1,6 @@
-FROM tomee:8-jre-7.0.4-plus
-
-COPY deployment/docker/deactivate-health-check.sh /
-
-COPY target/coffee-shop.war /usr/local/tomee/webapps/
+FROM registry.fedoraproject.org/fedora-minimal
+WORKDIR /work/
+COPY target/*-runner /work/application
+RUN chmod 775 /work
+EXPOSE 8080
+CMD ["./application", "-Dquarkus.http.host=0.0.0.0"]
