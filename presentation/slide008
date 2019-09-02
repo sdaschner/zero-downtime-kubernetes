@@ -6,19 +6,17 @@
 
 
 
-
-
-                                                  Deployment (rolling update)
-                                                  .-----------.                                   
-                                                  |  ┌─────┐  |
-                  ┌───────┐ .-------------------> |  │Pod 1│ (Ready)
-                  │ NGINX │/                      |  └─────┘  |
-                  │Ingress│                       |  ┌─────┐  |
-                  └───────┘                       |  │Pod 2│ (NotReady / lame duck)
-                                                  |  └─────┘  |
-                                                  °-----------°
-                                                                                                    
-                                                                                                    
+                                        Deployment (rolling update)
+                                        .-----------.                                   
+                                        |  ┌─────┐  |
+        ┌───────┐ .-------------------> |  │Pod 1│ (Ready)
+        │ NGINX │/                      |  └─────┘  |
+        │Ingress│                       |  ┌─────┐  |
+        └───────┘                       |  │Pod 2│ (NotReady / lame duck)
+                                        |  └─────┘  |
+                                        °-----------°
+                                                                                          
+                                                                                          
 
 
 
