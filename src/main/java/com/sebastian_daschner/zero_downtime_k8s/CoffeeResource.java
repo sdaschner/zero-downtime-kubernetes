@@ -11,8 +11,8 @@ public class CoffeeResource {
     @GET
     public String getCoffee() {
 //        if (new Random().nextDouble() < 0.99)
-//            throw new WebApplicationException();
-        return "Coffee!\n";
+            throw new WebApplicationException();
+//        return "Coffee!\n";
     }
 
 }
