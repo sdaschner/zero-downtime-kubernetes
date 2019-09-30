@@ -28,9 +28,6 @@ spec:
         subset: {{ .newVersion }}
         port:
           number: 8080
-#    retries:
-#      attempts: 10
-#      perTryTimeout: 1s
 ---
 
 apiVersion: networking.istio.io/v1alpha3
@@ -45,7 +42,4 @@ spec:
     - destination:
         host: coffee-shop
         subset: {{ .newVersion }}
-#    retries:
-#      attempts: 10
-#      perTryTimeout: 1s
 ---

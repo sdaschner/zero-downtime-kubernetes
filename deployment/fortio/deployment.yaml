@@ -6,18 +6,20 @@ spec:
   replicas: 1
   template:
     metadata:
+      annotations:
+        readiness.status.sidecar.istio.io/applicationPorts: ""
       labels:
         app: fortio
         version: v1
     spec:
       containers:
       - name: fortio
-        image: istio/fortio:1.3.0
+        image: istio/fortio:latest_release
         imagePullPolicy: Always
         ports:
-          - containerPort: 8080
-            name: http-fortio
-          - containerPort: 8079
-            name: grpc-ping
+        - containerPort: 8080
+          name: http-fortio
+        - containerPort: 8079
+          name: grpc-ping
       restartPolicy: Always
 ---

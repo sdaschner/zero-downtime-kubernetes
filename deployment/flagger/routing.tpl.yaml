@@ -5,9 +5,11 @@ metadata:
 spec:
   host: coffee-shop
   subsets:
-  - name: v1
+  {{- range splitList "," .subsets }}
+  - name: {{ . }}
     labels:
-      version: v1
+      version: {{ . }}
+  {{- end }}
 ---
 
 apiVersion: networking.istio.io/v1alpha3
@@ -23,12 +25,9 @@ spec:
   - route:
     - destination:
         host: coffee-shop
-        subset: v1
+        subset: {{ .newVersion }}
         port:
           number: 8080
-#    retries:
-#      attempts: 10
-#      perTryTimeout: 1s
 ---
 
 apiVersion: networking.istio.io/v1alpha3
@@ -42,9 +41,5 @@ spec:
   - route:
     - destination:
         host: coffee-shop
-        subset: v1
-#    retries:
-#      attempts: 10
-#      perTryTimeout: 1s
+        subset: {{ .newVersion }}
 ---
-

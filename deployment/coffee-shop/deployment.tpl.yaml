@@ -12,19 +12,19 @@ spec:
     spec:
       containers:
       - name: coffee-shop
-        image: docker.sebastian-daschner.com/coffee-shop:{{ .image }}
+        image: sdaschner/coffee-shop:zero-downtime-{{ .image }}
         imagePullPolicy: Always
         livenessProbe:
           exec:
             command:
-            - "/bin/bash"
+            - "/bin/sh"
             - "-c"
             - "curl -f localhost:8080/"
           initialDelaySeconds: 10
         readinessProbe:
           exec:
             command:
-            - "/bin/bash"
+            - "/bin/sh"
             - "-c"
             - "curl -f localhost:8080/coffee-shop/resources/health"
           initialDelaySeconds: 10
@@ -35,7 +35,7 @@ spec:
 #        lifecycle:
 #          preStop:
 #            exec:
-#              command: ["/bin/bash", "-c", "/deactivate-health-check.sh && sleep 20"]
+#              command: ["/bin/bash", "-c", "sleep 20"]
       imagePullSecrets:
       - name: regsecret
       restartPolicy: Always
