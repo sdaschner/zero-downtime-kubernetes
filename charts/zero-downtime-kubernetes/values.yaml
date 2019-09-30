@@ -50,9 +50,9 @@ canary:
     - jx-gateway.istio-system.svc.cluster.local
   canaryAnalysis:
     # schedule interval (default 60s)
-    interval: 30s
+    interval: 60s
     # max number of failed metric checks before rollback
-    threshold: 5
+    threshold: 2
     # max traffic percentage routed to canary
     # percentage (0-100)
     maxWeight: 50
