@@ -1,0 +1,33 @@
+{{- if eq .Release.Namespace "jx-production" }}
+{{- if .Values.canary.enable }}
+apiVersion: flagger.app/v1alpha2
+kind: Canary
+metadata:
+  name: {{ template "fullname" . }}
+spec:
+  targetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: {{ template "fullname" . }}
+  progressDeadlineSeconds: 60
+  service:
+    port: {{.Values.service.internalPort}}
+{{- if .Values.canary.service.gateways }}
+    gateways:
+{{ toYaml .Values.canary.service.gateways | indent 4 }}
+{{- end }}
+{{- if .Values.canary.service.hosts }}
+    hosts:
+{{ toYaml .Values.canary.service.hosts | indent 4 }}
+{{- end }}
+  canaryAnalysis:
+    interval: {{ .Values.canary.canaryAnalysis.interval }}
+    threshold: {{ .Values.canary.canaryAnalysis.threshold }}
+    maxWeight: {{ .Values.canary.canaryAnalysis.maxWeight }}
+    stepWeight: {{ .Values.canary.canaryAnalysis.stepWeight }}
+{{- if .Values.canary.canaryAnalysis.metrics }}
+    metrics:
+{{ toYaml .Values.canary.canaryAnalysis.metrics | indent 4 }}
+{{- end }}
+{{- end }}
+{{- end }}
