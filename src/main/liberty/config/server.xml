@@ -11,5 +11,5 @@
 
     <mpMetrics authentication="false"/>
 
-    <webApplication location="coffee-shop.war" contextRoot="/"/>
+    <webApplication location="coffee-shop.war" contextRoot="/coffee-shop/"/>
 </server>
