@@ -1,1 +1,0 @@
-# Liberty Java application
