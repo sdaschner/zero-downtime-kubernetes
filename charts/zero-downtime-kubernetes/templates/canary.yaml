@@ -11,12 +11,10 @@ spec:
   progressDeadlineSeconds: 60
   service:
     port: {{ .Values.service.internalPort }}
-    {{- if .Values.canary.istioIngress.enabled }}
     gateways:
     - {{ .Values.canary.istioIngress.gateway }}
     hosts:
     - {{ .Values.canary.istioIngress.host }}
-    {{- end }}
     trafficPolicy:
       tls:
         mode: {{ .Values.canary.istioTLS }}

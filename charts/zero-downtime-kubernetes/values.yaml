@@ -45,7 +45,6 @@ canary:
   # Istio traffic policy tls can be DISABLE or ISTIO_MUTUAL
   istioTLS: DISABLE
   istioIngress:
-    enabled: true
     gateway: jx-gateway.istio-system.svc.cluster.local
     host: "*"
   analysis:
