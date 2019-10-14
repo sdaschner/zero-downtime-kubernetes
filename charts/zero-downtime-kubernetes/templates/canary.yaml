@@ -14,7 +14,7 @@ spec:
     gateways:
     - {{ .Values.canary.istioIngress.gateway }}
     hosts:
-    - {{ .Values.canary.istioIngress.host }}
+    - "*"
     trafficPolicy:
       tls:
         mode: {{ .Values.canary.istioTLS }}
