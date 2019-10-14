@@ -1,0 +1,35 @@
+{{- if .Values.canary.enabled }}
+apiVersion: flagger.app/v1alpha3
+kind: Canary
+metadata:
+  name: {{ template "fullname" . }}
+spec:
+  targetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name:  {{ template "fullname" . }}
+  progressDeadlineSeconds: 60
+  service:
+    port: {{ .Values.service.internalPort }}
+    {{- if .Values.canary.istioIngress.enabled }}
+    gateways:
+    - {{ .Values.canary.istioIngress.gateway }}
+    hosts:
+    - {{ .Values.canary.istioIngress.host }}
+    {{- end }}
+    trafficPolicy:
+      tls:
+        mode: {{ .Values.canary.istioTLS }}
+  canaryAnalysis:
+    interval: {{ .Values.canary.analysis.interval }}
+    threshold: {{ .Values.canary.analysis.threshold }}
+    maxWeight: {{ .Values.canary.analysis.maxWeight }}
+    stepWeight: {{ .Values.canary.analysis.stepWeight }}
+    metrics:
+    - name: request-success-rate
+      threshold: {{ .Values.canary.metrics.successRate.threshold }}
+      interval: {{ .Values.canary.metrics.successRate.interval }}
+    - name: request-duration
+      threshold: {{ .Values.canary.metrics.latency.threshold }}
+      interval: {{ .Values.canary.metrics.latency.interval }}
+{{- end }}

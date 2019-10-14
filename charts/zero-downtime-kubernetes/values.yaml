@@ -39,3 +39,34 @@ readinessProbe:
   periodSeconds: 10
   successThreshold: 1
   timeoutSeconds: 1
+
+canary:
+  enabled: true
+  # Istio traffic policy tls can be DISABLE or ISTIO_MUTUAL
+  istioTLS: DISABLE
+  istioIngress:
+    enabled: true
+    gateway: jx-gateway.istio-system.svc.cluster.local
+    host: "*"
+  analysis:
+    # schedule interval (default 60s)
+    interval: 15s
+    # max number of failed metric checks before rollback
+    threshold: 10
+    # max traffic percentage routed to canary
+    # percentage (0-100)
+    maxWeight: 50
+    # canary increment step
+    # percentage (0-100)
+    stepWeight: 5
+  metrics:
+    # minimum req success rate (non 5xx responses)
+    successRate:
+      # percentage (0-100)
+      threshold: 99
+      interval: 60s
+    # maximum req duration P99
+    latency:
+      # milliseconds
+      threshold: 500
+      interval: 60s
