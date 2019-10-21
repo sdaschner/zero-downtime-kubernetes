@@ -13,4 +13,10 @@ public class CoffeeResource {
         return "Coffee!\n";
     }
 
+    @GET
+    @Path("fail")
+    public String fail() {
+        throw new WebApplicationException(500);
+    }
+
 }
