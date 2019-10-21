@@ -1,3 +1,4 @@
+{{- if eq .Release.Namespace "jx-production" }}
 {{- if .Values.canary.enabled }}
 apiVersion: flagger.app/v1alpha3
 kind: Canary
@@ -30,4 +31,5 @@ spec:
     - name: request-duration
       threshold: {{ .Values.canary.metrics.latency.threshold }}
       interval: {{ .Values.canary.metrics.latency.interval }}
+{{- end }}
 {{- end }}
