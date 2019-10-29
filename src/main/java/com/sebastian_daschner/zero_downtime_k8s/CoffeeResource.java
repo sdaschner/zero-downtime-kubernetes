@@ -11,9 +11,11 @@ public class CoffeeResource {
 
     @GET
     public String getCoffee() {
-        if (new Random().nextDouble() < 0.3)
-            throw new WebApplicationException(Response.serverError().entity("Нет кофе").build());
-        return "Кофе\n";
+//        if (new Random().nextDouble() < 0.3)
+//            throw new WebApplicationException(Response.serverError()
+//                    .entity("Нет кофе\n")
+//                    .build());
+        return "Кофе!\n";
     }
 
 }
