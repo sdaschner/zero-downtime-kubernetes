@@ -1,0 +1,136 @@
+
+Showing logs for build [32msdaschner-zero-downtime-kuberne-rw8xx-20[0m stage [32mfrom-build-pack[0m and container [32mstep-credential-initializer-ltvk8[0m
+{"level":"warn","ts":1572343418.7357378,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1572343418.7363884,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+
+Showing logs for build [32msdaschner-zero-downtime-kuberne-rw8xx-20[0m stage [32mfrom-build-pack[0m and container [32mstep-working-dir-initializer-2p7pw[0m
+{"level":"warn","ts":1572343419.643446,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1572343419.6451392,"logger":"fallback-logger","caller":"bash/main.go:65","msg":"Successfully executed command \"mkdir -p /workspace/source\""}
+
+Showing logs for build [32msdaschner-zero-downtime-kuberne-rw8xx-20[0m stage [32mfrom-build-pack[0m and container [32mstep-place-tools[0m
+
+Showing logs for build [32msdaschner-zero-downtime-kuberne-rw8xx-20[0m stage [32mfrom-build-pack[0m and container [32mstep-git-source-sdaschner-zero-downtime-kuberne-xb42b[0m
+{"level":"warn","ts":1572343427.7306812,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1572343428.846976,"logger":"fallback-logger","caller":"git/git.go:102","msg":"Successfully cloned https://github.com/*********/zero-downtime-kubernetes.git @ v1.0.27 in path /workspace/source"}
+
+Showing logs for build [32msdaschner-zero-downtime-kuberne-rw8xx-20[0m stage [32mfrom-build-pack[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:cdd35ea1a49a9e7d9df6ab9dbba96f8b0a40166f
+WARNING: no SHAs to merge, falling back to initial cloned commit
+
+Showing logs for build [32msdaschner-zero-downtime-kuberne-rw8xx-20[0m stage [32mfrom-build-pack[0m and container [32mstep-setup-jx-git-credentials[0m
+Generated Git credentials file /workspace/xdg_config/git/credentials
+
+Showing logs for build [32msdaschner-zero-downtime-kuberne-rw8xx-20[0m stage [32mfrom-build-pack[0m and container [32mstep-build-mvn-deploy[0m
+Picked up _JAVA_OPTIONS: -XX:+UnlockExperimentalVMOptions -Dsun.zip.disableMemoryMapping=true -XX:+UseParallelGC -XX:MinHeapFreeRatio=5 -XX:MaxHeapFreeRatio=10 -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Xms10m -Xmx192m
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------------< com.sebastian-daschner:zero-downtime >----------------
+[INFO] Building zero-downtime 1.0.27
+[INFO] --------------------------------[ war ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ zero-downtime ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ zero-downtime ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /workspace/source/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ zero-downtime ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 3 source files to /workspace/source/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ zero-downtime ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /workspace/source/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ zero-downtime ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:3.0.0-M1:test (default-test) @ zero-downtime ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- maven-war-plugin:3.2.2:war (default-war) @ zero-downtime ---
+[INFO] Packaging webapp
+[INFO] Assembling webapp [zero-downtime] in [/workspace/source/target/coffee-shop]
+[INFO] Processing war project
+[INFO] Webapp assembled in [83 msecs]
+[INFO] Building war: /workspace/source/target/coffee-shop.war
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ zero-downtime ---
+[INFO] Installing /workspace/source/target/coffee-shop.war to /home/jenkins/.mvnrepository/com/sebastian-daschner/zero-downtime/1.0.27/zero-downtime-1.0.27.war
+[INFO] Installing /workspace/source/pom.xml to /home/jenkins/.mvnrepository/com/sebastian-daschner/zero-downtime/1.0.27/zero-downtime-1.0.27.pom
+[INFO] 
+[INFO] --- maven-deploy-plugin:2.8.2:deploy (default-deploy) @ zero-downtime ---
+[INFO] Using alternate deployment repository local-nexus::default::http://nexus/repository/maven-releases/
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  14.392 s
+[INFO] Finished at: 2019-10-29T10:04:07Z
+[INFO] ------------------------------------------------------------------------
+
+Showing logs for build [32msdaschner-zero-downtime-kuberne-rw8xx-20[0m stage [32mfrom-build-pack[0m and container [32mstep-build-skaffold-version[0m
+v0.38.0
+
+Showing logs for build [32msdaschner-zero-downtime-kuberne-rw8xx-20[0m stage [32mfrom-build-pack[0m and container [32mstep-build-container-build[0m
+[36mINFO[0m[0000] Downloading base image open-liberty:javaee8-java12 
+ERROR: logging before flag.Parse: E1029 10:04:08.870476       9 metadata.go:142] while reading 'google-dockercfg' metadata: http status code: 404 while fetching url http://metadata.google.internal./computeMetadata/v1/instance/attributes/google-dockercfg
+ERROR: logging before flag.Parse: E1029 10:04:08.875884       9 metadata.go:159] while reading 'google-dockercfg-url' metadata: http status code: 404 while fetching url http://metadata.google.internal./computeMetadata/v1/instance/attributes/google-dockercfg-url
+2019/10/29 10:04:08 No matching credentials were found, falling back on anonymous
+[36mINFO[0m[0001] Error while retrieving image from cache: getting file info: stat /workspace/sha256:763bfb478a6ebe05cfb728983ef7c23403eff251b8b75f022644376411f149fa: no such file or directory 
+[36mINFO[0m[0001] Downloading base image open-liberty:javaee8-java12 
+2019/10/29 10:04:10 No matching credentials were found, falling back on anonymous
+[36mINFO[0m[0002] Using files from context: [/workspace/source/src/main/liberty/config] 
+[36mINFO[0m[0002] Using files from context: [/workspace/source/target/coffee-shop.war] 
+[36mINFO[0m[0002] Skipping unpacking as no commands require it. 
+[36mINFO[0m[0002] Taking snapshot of full filesystem...        
+[36mINFO[0m[0002] Using files from context: [/workspace/source/src/main/liberty/config] 
+[36mINFO[0m[0002] COPY src/main/liberty/config/ /opt/ol/wlp/usr/servers/defaultServer/ 
+[36mINFO[0m[0002] Taking snapshot of files...                  
+[36mINFO[0m[0002] Using files from context: [/workspace/source/target/coffee-shop.war] 
+[36mINFO[0m[0002] COPY target/*.war /opt/ol/wlp/usr/servers/defaultServer/apps/ 
+[36mINFO[0m[0002] Taking snapshot of files...                  
+2019/10/29 10:04:11 existing blob: sha256:22e816666fd6516bccd19765947232debc14a5baf2418b2202fd67b3807b6b91
+2019/10/29 10:04:11 existing blob: sha256:67902924709e27e910238f750db1648b183efdb40710c756076745e0995d2154
+2019/10/29 10:04:11 existing blob: sha256:9109481d7bc600d1ac519218b17d065dddab20149993fa495ca386df8cb5ea46
+2019/10/29 10:04:11 existing blob: sha256:d67320a9e1f36ff866b3e32b9347b2f61fcfa601800d7a8324e3933326996d73
+2019/10/29 10:04:11 existing blob: sha256:079b6d2a1e53c648abc48222c63809de745146c2ee8322a1b9e93703318290d6
+2019/10/29 10:04:11 existing blob: sha256:11048ebae90883c19c9b20f003d5dd2f5bbf5b48556dabf06c8ea5c871c8debe
+2019/10/29 10:04:11 existing blob: sha256:860b5f7ba94949bac7ca0732b9a01a77497e1613ac7adb14cd3f7ef011aa8730
+2019/10/29 10:04:11 existing blob: sha256:e47fe2fdd5f85c9c952f22dc374de2df681454d62a5168f2f8c303b3af8aa2c4
+2019/10/29 10:04:11 existing blob: sha256:12a4a5f4481dc11b352c15a49ef1f503c96f1d3f5acb9a341b864e152e5e7d00
+2019/10/29 10:04:11 existing blob: sha256:c58094023a2e61ef9388e283026c5d6a4b6ff6d10d4f626e866d38f061e79bb9
+2019/10/29 10:04:11 existing blob: sha256:428f71d387d1d9bf5a79dffdb2192857899f02f4476ef9f337758d275a01b2d5
+2019/10/29 10:04:14 pushed blob: sha256:20ed0c99448df6de9a7d13454ecdecd7093a8129478a973f6584902865706bda
+2019/10/29 10:04:14 pushed blob: sha256:c9251f4e21a0f6d094fcf0dbf6611df23e0b2cc03dc122fa6df999d6aa00cce0
+2019/10/29 10:04:14 pushed blob: sha256:c5dc3583b7529eb3da54b4542b7b5f0ef3773b36d04ca38406588c0a1fa098f1
+2019/10/29 10:04:16 gcr.io/testing-215306/zero-downtime-kubernetes:1.0.27: digest: sha256:d8d7bbf3bbbc5dbc61691fb4fe9553fed5b81a53ebdc93b227ddc068565aff62 size: 2372
+
+Showing logs for build [32msdaschner-zero-downtime-kuberne-rw8xx-20[0m stage [32mfrom-build-pack[0m and container [32mstep-build-post-build[0m
+no CVE provider running in the current ** namespace so skip adding image to be analysed
+
+Showing logs for build [32msdaschner-zero-downtime-kuberne-rw8xx-20[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-changelog[0m
+Converted /workspace/source/charts/zero-downtime-kubernetes to an unshallow repository
+Generating change log from git ref b35da92e41706de68088a84787dfbbba1cbdcfaa => 3ff93925b1947dc529086dbd4bfc8a352a2edea1
+WARNING: No release found for *********/zero-downtime-kubernetes and tag v1.0.27 so creating a new release
+Updated the release information at https://github.com/*********/zero-downtime-kubernetes/releases/tag/v1.0.27
+generated: /workspace/source/charts/zero-downtime-kubernetes/templates/release.yaml
+Created Release zero-downtime-kubernetes-1-0-27 resource in namespace **
+Updating PipelineActivity *********-zero-downtime-kubernetes-master-20 with version 1.0.27
+Updated PipelineActivities *********-zero-downtime-kubernetes-master-20 with release notes URL: https://github.com/*********/zero-downtime-kubernetes/releases/tag/v1.0.27
+
+Showing logs for build [32msdaschner-zero-downtime-kuberne-rw8xx-20[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-helm-release[0m
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Adding missing Helm repo: storage.googleapis.com https://storage.googleapis.com/chartmuseum.jenkins-x.io
+Successfully added Helm repository storage.googleapis.com.
+Adding missing Helm repo: jenkins-x-chartmuseum http://jenkins-x-chartmuseum:8080
+Successfully added Helm repository jenkins-x-chartmuseum.
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Uploading chart file zero-downtime-kubernetes-1.0.27.tgz to http://jenkins-x-chartmuseum:8080/api/charts
+Received 201 response: {"saved":true}
+
+Showing logs for build [32msdaschner-zero-downtime-kuberne-rw8xx-20[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-jx-promote[0m
+WARNING: prow based install so skip waiting for the merge of Pull Requests to go green as currently there is an issue with gettingstatuses from the PR, see https://github.com/jenkins-x/**/issues/2410
+Promoting app zero-downtime-kubernetes version 1.0.27 to namespace **-staging
+Created Pull Request: https://github.com/*********/environment-standard-cluster-1-staging/pull/53
+Pull Request https://github.com/*********/environment-standard-cluster-1-staging/pull/53 is merged at sha 1ceb4985321bf9e7c4a2337e15a6bc474562e2a6
+Pull Request merged but we are not waiting for the update pipeline to complete!
