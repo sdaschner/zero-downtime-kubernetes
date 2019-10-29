@@ -1,0 +1,12 @@
+
+
+
+
+
+            Jenkins X - Continuous Delivery for the Kloud
+
+            • built on Kubernetes
+            • provides glue for component
+            • uses opinionated default workflow
+            • based on GitOps, Helm charts
+            • implemented via Tekton, WebHooks
