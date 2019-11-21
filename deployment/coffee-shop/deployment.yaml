@@ -11,29 +11,17 @@ spec:
     spec:
       containers:
       - name: coffee-shop
-        image: sdaschner/coffee-shop:zero-downtime-1
+        image: sdaschner/coffee-shop:quarkus-zero-downtime-1
         imagePullPolicy: Always
-        livenessProbe:
-          exec:
-            command:
-            - "/bin/bash"
-            - "-c"
-            - "curl -f localhost:8080/"
-          initialDelaySeconds: 10
         readinessProbe:
           exec:
             command:
-            - "/bin/bash"
+            - "/bin/sh"
             - "-c"
-            - "curl -f localhost:8080/coffee-shop/resources/health"
-          initialDelaySeconds: 10
-          periodSeconds: 5
-          failureThreshold: 2
+            - "curl -f localhost:8080/health"
         lifecycle:
           preStop:
             exec:
-              command: ["/bin/bash", "-c", "sleep 20"]
-      imagePullSecrets:
-      - name: regsecret
+              command: ["/bin/sh", "-c", "sleep 10"]
       restartPolicy: Always
 ---

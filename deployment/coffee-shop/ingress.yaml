@@ -9,7 +9,7 @@ spec:
   rules:
   - http:
       paths:
-      - path: /coffee-shop
+      - path: /
         backend:
           serviceName: coffee-shop
           servicePort: 8080
