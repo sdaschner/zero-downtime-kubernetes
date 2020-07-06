@@ -1,9 +1,13 @@
 kind: Deployment
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 metadata:
   name: fortio
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: fortio
+      version: v1
   template:
     metadata:
       annotations:
@@ -14,7 +18,7 @@ spec:
     spec:
       containers:
       - name: fortio
-        image: istio/fortio:latest_release
+        image: istio/fortio:1.4.1
         imagePullPolicy: Always
         ports:
         - containerPort: 8080

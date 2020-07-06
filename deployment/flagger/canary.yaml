@@ -4,7 +4,7 @@ metadata:
   name: coffee-shop
 spec:
   targetRef:
-    apiVersion: apps/v1beta1
+    apiVersion: apps/v1
     kind: Deployment
     name: coffee-shop
   progressDeadlineSeconds: 60

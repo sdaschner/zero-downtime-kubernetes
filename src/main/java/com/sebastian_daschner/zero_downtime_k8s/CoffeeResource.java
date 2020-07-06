@@ -11,7 +11,7 @@ public class CoffeeResource {
 
     @GET
     public String getCoffee() {
-        return "Coffee\n";
+        return "Coffee ☕\n";
     }
 
 }

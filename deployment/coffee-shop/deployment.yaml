@@ -1,18 +1,22 @@
 kind: Deployment
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 metadata:
-  name: coffee-shop-{{ .newVersion }}
+  name: coffee-shop
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: coffee-shop
+      version: v1
   template:
     metadata:
       labels:
         app: coffee-shop
-        version: {{ .newVersion }}
+        version: v1
     spec:
       containers:
       - name: coffee-shop
-        image: sdaschner/coffee-shop:quarkus-zero-downtime-{{ .image }}
+        image: sdaschner/coffee-shop:quarkus-zero-downtime-1
         imagePullPolicy: Always
         readinessProbe:
           exec:
