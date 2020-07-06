@@ -16,8 +16,11 @@ spec:
     spec:
       containers:
       - name: coffee-shop
-        image: sdaschner/coffee-shop:quarkus-zero-downtime-1
+        image: sdaschner/coffee-shop:quarkus-zero-downtime-3
         imagePullPolicy: Always
+        envFrom:
+        - secretRef:
+            name: daschner-postgres
         readinessProbe:
           exec:
             command:
@@ -26,5 +29,12 @@ spec:
             - "curl -f localhost:8080/health"
         ports:
         - containerPort: 8080
+      initContainers:
+      - name: schema-migration
+        image: sdaschner/coffee-shop-migration:v001
+        envFrom:
+        - secretRef:
+            name: daschner-postgres-flyway
+        command: ["flyway", "migrate"]
       restartPolicy: Always
 ---
