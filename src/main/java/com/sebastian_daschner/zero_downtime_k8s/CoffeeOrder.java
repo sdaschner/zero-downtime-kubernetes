@@ -24,17 +24,6 @@ public class CoffeeOrder extends PanacheEntityBase {
     @Column(name = "coffee_type")
     public CoffeeType type;
 
-    // temporary duplicate field for data migration
-    @Basic(optional = false)
-    @Column(name = "type")
-    private CoffeeType tmpCoffeeType;
-
     public OrderStatus status = PREPARING;
-
-    @PrePersist
-    @PreUpdate
-    private void setTemporaryCoffeeType() {
-        tmpCoffeeType = type;
-    }
 
 }

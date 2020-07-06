@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: coffee-shop
-        image: sdaschner/coffee-shop:quarkus-db-migrations-3
+        image: sdaschner/coffee-shop:quarkus-db-migrations-4
         imagePullPolicy: Always
         envFrom:
         - secretRef:
