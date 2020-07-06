@@ -31,7 +31,7 @@ spec:
         - containerPort: 8080
       initContainers:
       - name: schema-migration
-        image: sdaschner/coffee-shop-migration:v003
+        image: sdaschner/coffee-shop-migration:v004
         envFrom:
         - secretRef:
             name: daschner-postgres-flyway
