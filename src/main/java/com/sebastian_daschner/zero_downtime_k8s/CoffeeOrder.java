@@ -4,10 +4,7 @@ import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 
 import javax.json.bind.annotation.JsonbTransient;
 import javax.json.bind.annotation.JsonbTypeAdapter;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.UUID;
 
@@ -26,6 +23,17 @@ public class CoffeeOrder extends PanacheEntityBase {
     @JsonbTypeAdapter(CoffeeTypeDeserializer.class)
     public CoffeeType type;
 
+    // temporary duplicate field for data migration
+    @Basic(optional = false)
+    @Column(name = "coffee_type")
+    private CoffeeType tmpCoffeeType;
+
     public OrderStatus status = PREPARING;
+
+    @PrePersist
+    @PreUpdate
+    private void setTemporaryCoffeeType() {
+        tmpCoffeeType = type;
+    }
 
 }

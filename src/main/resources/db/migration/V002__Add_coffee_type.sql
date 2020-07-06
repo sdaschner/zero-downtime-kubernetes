@@ -1,0 +1,5 @@
+ALTER TABLE orders
+    ADD COLUMN coffee_type VARCHAR(255);
+
+ALTER TABLE orders
+    ALTER COLUMN type DROP NOT NULL;
