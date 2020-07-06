@@ -21,11 +21,12 @@ public class CoffeeOrder extends PanacheEntityBase {
 
     @NotNull
     @JsonbTypeAdapter(CoffeeTypeDeserializer.class)
+    @Column(name = "coffee_type")
     public CoffeeType type;
 
     // temporary duplicate field for data migration
     @Basic(optional = false)
-    @Column(name = "coffee_type")
+    @Column(name = "type")
     private CoffeeType tmpCoffeeType;
 
     public OrderStatus status = PREPARING;
