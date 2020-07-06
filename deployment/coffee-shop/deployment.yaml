@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: coffee-shop
-        image: sdaschner/coffee-shop:quarkus-zero-downtime-5
+        image: sdaschner/coffee-shop:quarkus-zero-downtime-6
         imagePullPolicy: Always
         envFrom:
         - secretRef:
