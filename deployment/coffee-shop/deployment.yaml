@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: coffee-shop
-        image: sdaschner/coffee-shop:quarkus-zero-downtime-3
+        image: sdaschner/coffee-shop:quarkus-zero-downtime-4
         imagePullPolicy: Always
         envFrom:
         - secretRef:
@@ -31,7 +31,7 @@ spec:
         - containerPort: 8080
       initContainers:
       - name: schema-migration
-        image: sdaschner/coffee-shop-migration:v001
+        image: sdaschner/coffee-shop-migration:v002
         envFrom:
         - secretRef:
             name: daschner-postgres-flyway
