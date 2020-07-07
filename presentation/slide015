@@ -3,19 +3,9 @@
 
 
 
-                                                        
-                                                       
-                                           Destination- 
-                                           Rule        
-                                          ┌────┐      
-                                          │    │ 
-        ┌───┐        ┌──────────────┐     │    │  
-        │Pod│------->│VirtualService│     │    │  
-        └───┘        └──────────────┘ \   │    │  
-                      coffee-shop      °->│ v2 │ ----. 
-                                          └────┘      \  .-------.
-                                                       \ | ┌───┐ |
-                                                        -->│Pod│ |
-                                                         | └───┘ |
-                                                         °-------°
-                                                          v2
+            Graceful Pod Termination
+
+            • Handle SIGTERM in container process (PID 1)
+            • Beware of scripts in CMD
+            • Test grace period for your application
+
