@@ -1,0 +1,17 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: db-baseline
+  labels:
+    app: db-baseline
+  annotations:
+    sidecar.istio.io/inject: "false"
+spec:
+  restartPolicy: Never
+  containers:
+  - name: db-baseline
+    image: sdaschner/coffee-shop-migration:v001
+    envFrom:
+    - secretRef:
+        name: daschner-postgres-flyway
+    command: ["flyway", "baseline", "-baselineVersion=0"]
