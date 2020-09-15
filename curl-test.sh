@@ -7,4 +7,4 @@ URL=http://$HOST/coffee
 echo accessing $URL
 echo
 
-kubectl exec -it $FORTIO_POD  -c fortio /usr/local/bin/fortio -- curl $URL
+kubectl exec -it $FORTIO_POD  -c fortio -- fortio curl $URL

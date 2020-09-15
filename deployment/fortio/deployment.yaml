@@ -1,14 +1,16 @@
 kind: Deployment
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 metadata:
   name: fortio
 spec:
+  selector:
+    matchLabels:
+      app: fortio
   replicas: 1
   template:
     metadata:
       labels:
         app: fortio
-        version: v1
     spec:
       containers:
       - name: fortio
