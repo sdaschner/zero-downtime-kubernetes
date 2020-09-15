@@ -3,9 +3,19 @@
 
 
 
-            Database Migrations
-
-            • N-1 compatibility
-            • Application version N and N+1 compatible
-            • Rolling upgrade
-            • “Migrate in steps, not in jumps”
+                                                         .-------.
+                                                         | ┌───┐ |
+                                           Destination-  | │Pod│ |
+                                           Rule          | └───┘ |
+                                          ┌────┐         °-------°
+                                          │ v1 │          v1
+        ┌───┐        ┌──────────────┐     │    │  
+        │Pod│------->│VirtualService│     │    │  
+        └───┘        └──────────────┘ \   │    │  
+                      coffee-shop      °->│ v2 │ ----. 
+                                          └────┘      \  .-------.
+                                                       \ | ┌───┐ |
+                                                        -->│Pod│ |
+                                                         | └───┘ |
+                                                         °-------°
+                                                          v2

@@ -1,15 +1,11 @@
 
+               
+                                                                             
 
 
+            Pod Disruption Budgets
 
-
-            Key Takeaways
-
-            • Verify and properly test your deployments
-            • Migitate downtime
-            • Regard N-1 compatibility (databases)
-            • Migrate in steps, not in jumps
-            • Test in production, but limit blast radius
-            • Use automation
-            • OSS cloud-native technology enables approaches
+            • Mitigate disruption caused by planned cluster maintenance
+            • Considered by kubectl drain command
+            • Pods will be rescheduled before operators continue
 

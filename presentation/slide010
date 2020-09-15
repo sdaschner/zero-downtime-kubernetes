@@ -1,21 +1,25 @@
 
 
 
+                ┌───────────┐               ┌──────────────┐
+                │Istio Pilot│ <--watches--> │Kubernetes API│
+                └───────────┘               └──────────────┘
+                       |
+                       |
+                       |
+                   configures
+                       |
+                       |
+             Pod       |
+            ┌──────────v───┐   connection-based        Pod
+            │┌────┐ ┌─────┐│      resiliency          ┌───────────┐
+            ││main│ │proxy│-------------------------> │coffee-shop│
+            │└────┘ └─────┘│   outlier detection,     └───────────┘
+            └──────────────┘   timeouts, retries,      
+                                health checking
 
 
-                                                         .-------.
-                                                         | ┌───┐ |
-                                           Destination- -->│Pod│ |
-                                           Rule        / | └───┘ |
-                                          ┌────┐      /  °-------°
-                                       .->│ v1 │ ----°    v1
-        ┌───┐        ┌──────────────┐ /   │    │  
-        │Pod│------->│VirtualService│     │    │  
-        └───┘        └──────────────┘     │    │  
-                      coffee-shop         │ v2 │ 
-                                          └────┘         .-------.
-                                                         | ┌───┐ |
-                                                         | │Pod│ |
-                                                         | └───┘ |
-                                                         °-------°
-                                                          v2
+
+
+
+

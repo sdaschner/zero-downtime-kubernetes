@@ -3,8 +3,11 @@
 
 
 
-            Спасибо!
+            Key Takeaways
 
-            • daschner.dev/0-downtime-k8s
-            • @DaschnerS
-            • Book: Architecting Modern Java EE Applications
+            • Verify and properly test your deployments
+            • Migitate downtime
+            • Use automation
+            • Rollout gracefully
+            • Regard N-1 compatibility (databases)
+
